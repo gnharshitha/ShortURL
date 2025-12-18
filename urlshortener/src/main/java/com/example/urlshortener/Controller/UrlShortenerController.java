@@ -16,11 +16,21 @@ public class UrlShortenerController
             return ResponseEntity.ok("short URI " +StringShortUri);
     } 
 
-    
+        @GetMapping("/Expand")
+        @ResponseEntity
       public ResponseEntity findURL(@RequestBody String key)
         {
-               String longURI=Urlservice.findUrl(key);
-                return ResponseEntity.ok("Long URI " +longURI);
+                 if(key.contains("http://short.url/") && key!=null)
+                 {
+                        String longURI=Urlservice.findUrl(key);
+                       return ResponseEntity.ok("Long URI " +longURI);
+                     
+                 }
+                        else
+                        {
+                                return ResponseEntity.ok("Invalid Short URI key");
+                        }   
+               
         }
 
 
