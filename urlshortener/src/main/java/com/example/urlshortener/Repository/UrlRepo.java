@@ -1,4 +1,4 @@
 @Repository
-public interface ShortnerRepo extends JpaRepository<UrlEntity, Long> {
-    UrlEntity findByShortUrl(String shortUrl);
+public interface ShortnerRepo extends JpaRepository<Url, Long> {
+    Url findByShortKey(String shortKey);
 }
