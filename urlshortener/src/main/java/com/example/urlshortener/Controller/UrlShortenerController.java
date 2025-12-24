@@ -13,7 +13,7 @@ public class UrlShortenerController
     @ResponseEntity 
     public ResponseEntity postURL(@RequestBody String Url){
            StringShortUri=Urlservice.encodeUrl(Url);
-            return ResponseEntity.ok("short URI " +StringShortUri);
+           return ResponseEntity.ok("short URI " +StringShortUri);
     } 
 
         @GetMapping("/Expand")
@@ -23,8 +23,7 @@ public class UrlShortenerController
                  if(key.contains("http://short.url/") && key!=null)
                  {
                         String longURI=Urlservice.findUrl(key);
-                       return ResponseEntity.ok("Long URI " +longURI);
-                     
+                       return ResponseEntity.ok("Long URI " +longURI);  
                  }
                         else
                         {
@@ -32,6 +31,4 @@ public class UrlShortenerController
                         }   
                
         }
-
-
 }
